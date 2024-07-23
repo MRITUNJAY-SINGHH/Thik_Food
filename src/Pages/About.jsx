@@ -199,10 +199,10 @@ useEffect(() => {
         <div className='flex justify-between flex-wrap'>
           {cardData.map((card, index) => (
             <div key={index} className='w-[30%] mb-[24px]'>
-              <div className='featured-card flex flex-col justify-center items-center'>
+              <div className='featured-card dark:bg-[#111827]  flex flex-col justify-center items-center'>
                 <img src={card.icon} alt='' />
-                <h4>{card.title}</h4>
-                <p>{card.description}</p>
+                <h4 className='dark:text-white'>{card.title}</h4>
+                <p className='dark:text-white'>{card.description}</p>
                 <Link to={'#'}>Read more</Link>
               </div>
             </div>
@@ -331,9 +331,7 @@ useEffect(() => {
                 <img src={clinet1} alt='' className='w-full rounded-2xl' />
                 <div className='content text-center'>
                   <h4 className='mb-5 '>Hunter King</h4>
-                  <span className='text-[16px] '>
-                    CEO &amp; Co-Founder
-                  </span>
+                  <span className='text-[16px] '>CEO &amp; Co-Founder</span>
                   <div className='social-network mt-5 flex justify-center space-x-2 gap-3'>
                     <Link to='#'>
                       <FaTwitter size={20} color='#29A56C' />
@@ -353,9 +351,7 @@ useEffect(() => {
                 <img src={clinet2} alt='' className='w-full rounded-2xl' />
                 <div className='content text-center'>
                   <h4 className='mb-5 '>Dilan Specter</h4>
-                  <span className='text-[18px] '>
-                    Head Engineer
-                  </span>
+                  <span className='text-[18px] '>Head Engineer</span>
                   <div className='social-network mt-5 flex justify-center space-x-2 gap-3'>
                     <Link to='#'>
                       <FaTwitter size={20} color='#29A56C' />
