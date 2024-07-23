@@ -70,15 +70,12 @@ const ProductList = () => {
     (state) => state.setSearchResult.searchResults
   );
 
-  
-  
   const { category, subcategory } = useParams();
-
   useEffect(() => {
-  }, [searchResults]);
 
+  }, [searchResults, category, subcategory]); 
 
-
+  
   let productData = [];
   if (searchResults && searchResults.length > 0) {
     productData = searchResults;
