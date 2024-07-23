@@ -387,7 +387,14 @@ const handleSubmit = () => {
                   className='w-full'
                   onClick={handleAddTotal}
                 >
-                  <button className='w-full text-center rounded-xl py-3 px-6 font-semibold text-xl text-white transition-all duration-500 btn btn-md custom-inline-flex'>
+                  <button
+                    className={`w-full text-center rounded-xl py-3 px-6 font-semibold text-xl transition-all duration-500 btn btn-md custom-inline-flex ${
+                      products.length === 0
+                        ? 'btn-disabled'
+                        : 'text-white bg-blue-500 hover:bg-blue-600'
+                    }`}
+                    disabled={products.length === 0}
+                  >
                     Checkout
                     <FiLogOut className='ml-3' size={20} />
                   </button>

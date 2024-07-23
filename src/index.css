@@ -84,6 +84,11 @@ html {
    background-color: #3e5379 !important;
    border-color: #3e5379 !important;
 }
+.btn-disabled{
+  background-color: #cccccc !important;
+  color: #666666 !important;
+  cursor: not-allowed !important;
+}
 .font-size-13 {
    font-size: 13px !important;
 }
