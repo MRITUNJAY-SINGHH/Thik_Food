@@ -49,7 +49,9 @@ const Header = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (searchInput === '') return;
+    if (searchInput === '') {
+      dispatch(setSearchResults([]));
+    }
 
     let results = [];
     productFilterName.forEach((item) => {
@@ -96,11 +98,13 @@ const Header = () => {
             className='outline-none pl-5 flex-1 dark:bg-gray-900 dark:text-white placeholder-black dark:placeholder-white'
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
+            onClick={handleSearch}
+            disabled='true'
           />
 
           <div
             className='search-icon cursor-pointer dark:text-white'
-            onClick={handleSearch}
+            // disabled="true"
           >
             <FaSearch />
           </div>
