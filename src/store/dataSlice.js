@@ -14,7 +14,9 @@ export const fetchData = createAsyncThunk(
    'data/fetchData',
    async (_, { rejectWithValue }) => {
       try {
-         const response = await axios.get('https://api.npoint.io/21b3854c5f268236fe41');
+         const response = await axios.get(
+           'https://api.npoint.io/5f0ebd8386e74feb753a'
+         );
          return response.data.productData;
       } catch (error) {
          return rejectWithValue(error.response.data);
