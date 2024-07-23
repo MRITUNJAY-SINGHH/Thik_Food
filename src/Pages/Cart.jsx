@@ -158,8 +158,13 @@ const handleSubmit = () => {
       </div>
       <div className='flex justify-between mb-6 w-[67%]'>
         <button
-          className={`btn btn-sm ${'text-white '}`}
+          className={`btn btn-sm  ${
+            products.length === 0
+              ? 'disabled'
+              : 'text-white bg-blue hover:bg-blue-600'
+          }`}
           onClick={() => handleUpdateCart()}
+          disabled={products.length === 0}
         >
           <FiRefreshCcw
             className={`inline-block mr-2 ${isLoading ? 'animate-spin' : ''}`}
@@ -363,7 +368,7 @@ const handleSubmit = () => {
                 <div className='flex items-center border-b border-gray-200'>
                   <button
                     className='rounded-lg w-full bg-black py-2.5 px-4 text-white text-sm font-semibold text-center mb-8 transition-all duration-500 hover:bg-black/80'
-                    onClick={()=>handleSubmit()}
+                    onClick={() => handleSubmit()}
                   >
                     Submit
                   </button>
@@ -376,20 +381,17 @@ const handleSubmit = () => {
                     ₹{totalValue}
                   </p>
                 </div>
-                
-                  <Link
-                    to='/checkout'
-                    className='w-full'
-                    onClick={handleAddTotal}
-                  >
-                    <button
-                      className='w-full text-center rounded-xl py-3 px-6 font-semibold text-xl text-white transition-all duration-500 btn btn-md custom-inline-flex'
-                    >
-                      Checkout
-                      <FiLogOut className='ml-3' size={20} />
-                    </button>
-                  </Link>
-                
+
+                <Link
+                  to='/checkout'
+                  className='w-full'
+                  onClick={handleAddTotal}
+                >
+                  <button className='w-full text-center rounded-xl py-3 px-6 font-semibold text-xl text-white transition-all duration-500 btn btn-md custom-inline-flex'>
+                    Checkout
+                    <FiLogOut className='ml-3' size={20} />
+                  </button>
+                </Link>
               </form>
             </div>
           </div>
