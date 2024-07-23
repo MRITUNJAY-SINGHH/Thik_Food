@@ -157,7 +157,7 @@ const Compare = () => {
                   </td>
                   {products.map((product) => (
                     <td key={product.id} className='row_text'>
-                      <p className='text-[15px] max-w-[90%] text-muted mx-auto '>
+                      <p className='text-[16px] max-w-[90%]  mx-auto dark:text-white'>
                         {product.description}
                       </p>
                     </td>

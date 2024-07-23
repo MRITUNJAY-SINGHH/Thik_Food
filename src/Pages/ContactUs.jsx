@@ -79,7 +79,7 @@ const Contact = () => {
 
          <div>
            <iframe
-             src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6127.267625401169!2d77.45974882526681!3d28.63694985325516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cee057557569f%3A0xa620a4ec7cbfb05e!2sLal%20Kuan%20Police%20Chowki!5e0!3m2!1sen!2sin!4v1699461509521!5m2!1sen!2sin'
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.9426857830545!2d-84.61069442469915!3d33.42473857339968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f4c20851884915%3A0xaeb3c54dcaff2b81!2s348%20Elkins%20Pl%2C%20Peachtree%20City%2C%20GA%2030269%2C%20USA!5e0!3m2!1sen!2sin!4v1721767046350!5m2!1sen!2sin"
              width='98%'
              height='450'
              style={{ border: 0, margin: '0 auto' }}
@@ -137,7 +137,7 @@ const Contact = () => {
              </span>
              <br />
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] dark:text-white'>
-              GA 30269
+               GA 30269
              </span>{' '}
              <br />
              <abbr title='Phone' className='cursor-help text-[#7e7e7e]'>
