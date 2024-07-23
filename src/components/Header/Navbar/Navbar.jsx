@@ -30,6 +30,7 @@ const Navbar = () => {
 
   const handleShowMoreClick = () => {
     setIsExpanded(!isExpanded);
+    
   };
   useEffect(() => {
     const navbar = document.querySelector('.NavbarBorder');
@@ -181,44 +182,46 @@ const Navbar = () => {
         </div>
       </div>
       {isOpen && (
-        <div className='categories-dropdown absolute bg-white dark:bg-gray-900 w-full z-50 flex justify-center flex-col items-center py-4 shadow-lg border border-gray-200'>
-          <div className='grid grid-cols-2 gap-4'>
-            {categories.map((category, index) => {
-              if (!isExpanded && index > 5) {
-                return null;
-              }
+      
+          <div className='categories-dropdown absolute bg-white dark:bg-gray-900 w-full z-50 flex justify-center flex-col items-center py-4 shadow-lg border border-gray-200'>
+            <div className='grid grid-cols-2 gap-4'>
+              {categories.map((category, index) => {
+                if (!isExpanded && index > 5) {
+                  return null;
+                }
 
-              return (
-                <Link
-                  to={category.link.replace(/\s+/g, '-').toLowerCase()}
-                  key={index}
-                  onClick={() => toggleCategories()}
-                >
-                  <div className='flex gap-3 justify-center items-center category-list hover-effect'>
-                    <img
-                      src={category.src}
-                      alt={category.alt}
-                      className='max-w-[20%]'
-                    />
-                    <span className='text-sm'>{category.name}</span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+                return (
+                  <Link
+                    to={category.link.replace(/\s+/g, '-').toLowerCase()}
+                    key={index}
+                    onClick={() => toggleCategories()}
+                  >
+                    <div className='flex gap-3 justify-center items-center category-list hover-effect'>
+                      <img
+                        src={category.src}
+                        alt={category.alt}
+                        className='max-w-[20%]'
+                      />
+                      <span className='text-sm'>{category.name}</span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
 
-          <div
-            className='more_categories cursor-pointer flex justify-center items-center transition-effect'
-            onClick={handleShowMoreClick}
-          >
-            <span
-              className={`icon ${isExpanded ? 'iconMinus' : 'iconPlus'}`}
-            ></span>
-            <span className='text-[14px]'>
-              {isExpanded ? 'Show less...' : 'Show more...'}
-            </span>
+            <div
+              className='more_categories cursor-pointer flex justify-center items-center transition-effect'
+              onClick={handleShowMoreClick}
+            >
+              <span
+                className={`icon ${isExpanded ? 'iconMinus' : 'iconPlus'}`}
+              ></span>
+              <span className='text-[14px]'>
+                {isExpanded ? 'Show less...' : 'Show more...'}
+              </span>
+            </div>
           </div>
-        </div>
+        
       )}
     </div>
   );

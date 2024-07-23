@@ -157,8 +157,8 @@ const Footer = () => {
            ))}
          </div>
 
-         <div className='grid grid-cols-5 gap-4 mt-16  footer-list'>
-           <div className='col-span-1'>
+         <div className='grid grid-cols-7 gap-4 mt-16  footer-list'>
+           <div className='col-span-2'>
              <div className='mb-30'>
                <Link to='/' className='mb-15'>
                  <img src={logo} alt='logo' />
@@ -228,7 +228,7 @@ const Footer = () => {
              <p className='my-2 text-[#253D4E] text-[15px] font-normal  dark:text-white'>
                From App Store or Google Play
              </p>
-             <div className='flex flex-wrap my-5 justify-around'>
+             <div className='flex flex-wrap my-5 justify-start gap-3'>
                <Link to='#' className='hover-up'>
                  <img src={apple} alt='' className='max-w-[120px]' />
                </Link>

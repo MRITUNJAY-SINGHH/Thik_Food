@@ -48,9 +48,6 @@ export default function QuickViewModal({ open, handleClose, productData }) {
   };
 
 const handleAddToCart = () => {
-  console.log('productData', productData);
-  console.log('quantity', quantity);
-
   if (productData.weight.length > 1 && !selectedWeight) {
     toast.error('Please select weight');
     return;
@@ -101,7 +98,7 @@ const handleAddToCart = () => {
           <div className='flex items-center justify-center w-full h-full'>
             <Dialog.Panel className='relative flex flex-col w-4/5 h-[90%] max-w-4xl max-h-4xl bg-white p-6 text-left rounded-2xl shadow-xl'>
               <div
-                className='absolute top-0  right-1 p-2 cursor-pointer border border-[#3BB77E] hover:bg-[#3BB77E] hover:text-white rounded-full'
+                className='absolute top-0  right-1 p-2 cursor-pointer border border-[#3BB77E] hover:bg-[#3BB77E] hover:text-white rounded-full dark:bg-black dark:text-white dark:border-white'
                 onClick={handleClose}
               >
                 <FiX style={{ fontSize: '18px' }} />
@@ -182,7 +179,7 @@ const handleAddToCart = () => {
                       </span>
                     </div>
                   </div>
-                  <p className='text-md dark:text-white dark:opacity-100 line-clamp-4'>
+                  <p className='text-md dark:text-black dark:opacity-100 line-clamp-4'>
                     {productData.description}
                   </p>
                   <div className='product-price primary-color flex-wrap '>
@@ -231,8 +228,8 @@ const handleAddToCart = () => {
                             key={index}
                             className={`mr-2 mb-2 py-1 px-3 rounded border ${
                               selectedWeight === weightOption
-                                ? '#3BB77E text-white bg-[#3BB77E]'
-                                : 'bg-white'
+                                ? ' text-white   bg-[#3BB77E]'
+                                : 'bg-white dark:bg-black dark:text-white'
                             }`}
                             onClick={() => handleWeightSelect(weightOption)}
                           >

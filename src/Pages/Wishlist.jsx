@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiTrash2 } from 'react-icons/fi';
@@ -12,12 +13,16 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
+import { addToCart } from '../store/cartSlice';
+import toast from 'react-hot-toast';
 
-const Wishlist = () => {
+const Wishlist = ({productData}) => {
+
   const [selectAll, setSelectAll] = useState(false);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.wishlist.items);
+  const [quantity, setQuantity] = useState(1);
   const [open, setOpen] = useState(false);
   const [productToDelete, setProductToDelete] = useState(null);
 
@@ -72,6 +77,16 @@ const Wishlist = () => {
       handleClickOpen(productId);
     }
   };
+
+
+
+const handleAddToCart = () => {
+
+  dispatch(addToCart({ product: productData, quantity }));
+  toast.success('Product added to cart!');
+  setQuantity(1);
+};
+
 
   return (
     <div className='w-[90%] mx-auto py-8'>
@@ -210,7 +225,9 @@ const Wishlist = () => {
                     </td>
                     <td className='pl-2 py-4 whitespace-nowrap  text-sm font-medium text-center'>
                       {product.inStock === true ? (
-                        <button className=' px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white   btn btn-sm custom-inline-flex gap-2'>
+                        <button className=' px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white   btn btn-sm custom-inline-flex gap-2'
+                        onClick={handleAddToCart}
+                        >
                           <FaShoppingBag className='mr-1' />
                           Add to cart
                         </button>
