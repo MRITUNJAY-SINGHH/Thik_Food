@@ -95,11 +95,11 @@ const Contact = () => {
                Office
              </h4>
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] dark:text-white'>
-               205 North Michigan Avenue, Suite 810
+               348 Elkins Place, Peachtree City
              </span>
              <br />
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] dark:text-white'>
-               Chicago, 60601, USA
+               GA 30269
              </span>
              <br />
              <abbr title='Phone' className='cursor-help text-[#7e7e7e]'>
@@ -108,7 +108,7 @@ const Contact = () => {
                </span>
              </abbr>
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] dark:text-white'>
-               (123) 456-7890
+               (404) 947-8771
              </span>
              <br />
              <abbr title='Email' className='cursor-help text-[#7e7e7e]'>
@@ -117,7 +117,7 @@ const Contact = () => {
                </span>
              </abbr>
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] mr-1 dark:text-white'>
-               contact@Evara.com
+               sales@thinktiveit.com
              </span>
              <br />
              <Link
@@ -133,13 +133,12 @@ const Contact = () => {
                Studio
              </h4>
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] dark:text-white'>
-               205 North Michigan Avenue, Suite 810
+               348 Elkins Place, Peachtree City
              </span>
              <br />
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] dark:text-white'>
-               Chicago, 60601, USA
+              GA 30269
              </span>{' '}
-             dark:text-white
              <br />
              <abbr title='Phone' className='cursor-help text-[#7e7e7e]'>
                <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] mr-1 dark:text-white'>
@@ -147,7 +146,7 @@ const Contact = () => {
                </span>
              </abbr>
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] dark:text-white'>
-               (123) 456-7890
+               (404) 947-8771
              </span>
              <br />
              <abbr
@@ -159,7 +158,7 @@ const Contact = () => {
                </span>
              </abbr>
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] mr-1 dark:text-white'>
-               contact@Evara.com
+               sales@thinktiveit.com
              </span>
              <br />
              <Link
@@ -175,11 +174,11 @@ const Contact = () => {
                Shop
              </h4>
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] dark:text-white'>
-               205 North Michigan Avenue, Suite 810
+               348 Elkins Place, Peachtree City
              </span>
              <br />
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] dark:text-white'>
-               Chicago, 60601, USA
+               GA 30269
              </span>
              <br />
              <abbr title='Phone' className='cursor-help text-[#7e7e7e]'>
@@ -188,7 +187,7 @@ const Contact = () => {
                </span>
              </abbr>
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] dark:text-white'>
-               (123) 456-7890
+               (404) 947-8771
              </span>
              <br />
              <abbr
@@ -200,7 +199,7 @@ const Contact = () => {
                </span>
              </abbr>
              <span className='text-[0.9rem] font-normal leading-6 text-[#7E7E7E] mr-1 dark:text-white'>
-               contact@Evara.com
+               sales@thinktiveit.com
              </span>
              <br />
              <Link
