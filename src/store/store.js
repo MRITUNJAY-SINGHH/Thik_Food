@@ -12,12 +12,14 @@ const rootReducer = combineReducers({
   wishlist: wishlistSlice,
   product: productSlice,
   cart: cartSlice,
-  setSearchResult:searchResultSlice
+  setSearchResult: searchResultSlice,
 });
 
 const persistConfig = {
   key: 'root',
-  storage
+  storage,
+  whitelist: ['wishlist', 'cart'],
+  blacklist: ['product', 'data', 'setSearchResult'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
