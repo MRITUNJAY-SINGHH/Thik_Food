@@ -4,7 +4,6 @@ import Logo from '../../assets/logo.svg';
 import { IoGitCompareOutline } from 'react-icons/io5';
 import { MdFavoriteBorder } from 'react-icons/md';
 import './Header.css';
-import AutocompleteComponents from '../../Common/Autocomplete';
 import DarkNightMode from '../../Common/DarkNightMode';
 import DropdownMenu from '../../Common/DropdownUser';
 import Navbar from './Navbar/Navbar';
@@ -42,14 +41,11 @@ const Header = () => {
     setHelmet(currentPage);
   }, [location]);
 
-  const productsCatItem = product.productData.map((item) =>
-    item.items.map((item) => item.cat_name)
-  );
+
   const productsName = product.productData.map((item) =>
     item.items.map((item) => item)
   );
   const productFilterName = productsName.flat();
-  const flattenedProductsCatItem = productsCatItem.flat();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -93,16 +89,11 @@ const Header = () => {
           </Link>
         </div>
         <div className='Search  h-11 flex items-center w-[45%] mx-5 my-autocomplete'>
-          <AutocompleteComponents
-            flattenedProductsCatItem={flattenedProductsCatItem}
-            // onSearch={(value) => setCategory(value)}
-          />
-
           <input
             id='search-input'
             type='text'
-            placeholder='Search for food items, e.g., apples, bread, milk...'
-            className='outline-none flex-1 dark:bg-gray-900 dark:text-white placeholder-black dark:placeholder-white'
+            placeholder='Search products, brands, and more'
+            className='outline-none pl-5 flex-1 dark:bg-gray-900 dark:text-white placeholder-black dark:placeholder-white'
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
           />
@@ -207,7 +198,6 @@ const Header = () => {
               )}
               {cart.length > 0 && (
                 <div className='shopping-cart-footer'>
-                  
                   <div className='shopping-cart-total'>
                     <h4>
                       Total <span>₹{subtotal}</span>
@@ -217,7 +207,6 @@ const Header = () => {
                     <Link className='outline' to='/cart'>
                       View cart
                     </Link>
-                    
                   </div>
                 </div>
               )}
