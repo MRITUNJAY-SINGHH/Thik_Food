@@ -71,40 +71,45 @@ const ProductList = () => {
   );
 
   const { category, subcategory } = useParams();
-  useEffect(() => {
-
-  }, [searchResults, category, subcategory]); 
 
   
-  let productData = [];
-  if (searchResults && searchResults.length > 0) {
-    productData = searchResults;
-  } else if (category) {
-    if (subcategory) {
-      productData = data
-        .filter(
-          (item) =>
-            item.cat_name.replace(/\s+/g, '-').toLowerCase() === category
-        )
-        .flatMap((item) => item.items)
-        .filter(
-          (item) =>
-            item.cat_name.replace(/\s+/g, '-').toLowerCase() === subcategory
-        )
-        .flatMap((item) => item.products);
+  const [productData, setProductData] = useState([]);
+
+  console.log(productData,"productData")
+
+  useEffect(() => {
+    let productData = [];
+    if (searchResults && searchResults.length > 0) {
+      productData = searchResults;
+    } else if (category) {
+      if (subcategory) {
+        productData = data
+          .filter(
+            (item) =>
+              item.cat_name.replace(/\s+/g, '-').toLowerCase() === category
+          )
+          .flatMap((item) => item.items)
+          .filter(
+            (item) =>
+              item.cat_name.replace(/\s+/g, '-').toLowerCase() === subcategory
+          )
+          .flatMap((item) => item.products);
+      } else {
+        productData = data
+          .filter(
+            (item) =>
+              item.cat_name.replace(/\s+/g, '-').toLowerCase() === category
+          )
+          .flatMap((item) => item.items.flatMap((items) => items.products));
+      }
     } else {
-      productData = data
-        .filter(
-          (item) =>
-            item.cat_name.replace(/\s+/g, '-').toLowerCase() === category
-        )
-        .flatMap((item) => item.items.flatMap((items) => items.products));
+      productData = data.flatMap((item) =>
+        item.items.flatMap((items) => items.products)
+      );
     }
-  } else {
-    productData = data.flatMap((item) =>
-      item.items.flatMap((items) => items.products)
-    );
-  }
+    setProductData(productData);
+  }, [searchResults, category, subcategory, data]);
+
 
   // Filter products based on selectedItem2
   const filterProducts = (products) => {
