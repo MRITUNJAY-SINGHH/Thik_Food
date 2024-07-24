@@ -5,7 +5,7 @@ import facebookImg from '../assets/Facebook-f_Logo-Blue-Logo.wine.svg';
 import GithubImg from '../assets/GitHub-Logo.wine.svg';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../store/authSlice';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -16,6 +16,7 @@ const SignUp = () => {
   const [agree, setAgree] = useState(false);
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
 
 
@@ -38,6 +39,13 @@ const SignUp = () => {
      setAgree(false);
 
      toast.success('Signup successful!');
+
+      setTimeout(() => {
+        navigate('/');
+      }
+      , 1000);
+
+
    } catch (err) {
   
      toast.error(
