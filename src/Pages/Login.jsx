@@ -5,11 +5,10 @@ import googleImg from '../assets/google.svg';
 import facebookImg from '../assets/Facebook-f_Logo-Blue-Logo.wine.svg';
 import GithubImg from '../assets/GitHub-Logo.wine.svg';
 import { Link, useNavigate } from 'react-router-dom';
-import { signIn } from '../store/authSlice';
+import { signIn, signInWithGoogle } from '../store/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import {useState } from 'react';
 import toast from 'react-hot-toast';
-import { FaSpinner } from 'react-icons/fa';
 
 
 
@@ -33,19 +32,39 @@ const Login = () => {
         toast.success('Login successful!');
         setEmail('');
         setPassword('');
-        setTimeout(()=>{
+        setTimeout(() => {
           navigate('/');
-
         }, 1000);
       })
       .catch((error) => {
         if (error.message === 'User not found') {
-          toast.error('No account found with this email. Please sign up.');
+          toast.error(
+            'No account found with this email. Please consider signing up.'
+          );
         } else {
-          toast.error('No account found with this email. Please sign up.');
+          toast.error(
+            'Please ensure your email and password are correct, or consider creating a new account.'
+          );
         }
       });
   };
+
+
+const handleGoogleSignIn = () => {
+  dispatch(signInWithGoogle())
+    .unwrap()
+    .then(() => {
+      toast.success('Sign in successful!');
+      navigate('/');
+    })
+    .catch((error) => {
+      toast.error(error || 'An error occurred. Please try again.');
+    });
+};
+
+
+
+
 
   return (
     <div>
@@ -110,9 +129,9 @@ const Login = () => {
                   <button
                     className='bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline contact-from-button hover-up mb-8 mt-2 custom-btn'
                     type='submit'
-                    disabled={loading} 
+                    disabled={loading}
                   >
-                    {loading ? <FaSpinner /> : 'Login'} 
+                    Login
                   </button>
                 </div>
               </form>
@@ -122,18 +141,21 @@ const Login = () => {
             <div className='card-login mt-32'>
               <Link
                 to='#'
+                onClick={handleGoogleSignIn}
+                className='social-login google-login flex items-center'
+                style={{ backgroundColor: '#3BB77E', color: 'white' }}
+              >
+                <img src={googleImg} alt='' className='mr-2' />
+                <span>Continue with Google</span>
+              </Link>
+              <Link
+                to='#'
                 className='social-login facebook-login flex items-center'
               >
                 <img src={facebookImg} alt='' className='mr-2' />
                 <span>Continue with Facebook</span>
               </Link>
-              <Link
-                to='#'
-                className='social-login google-login flex items-center'
-              >
-                <img src={googleImg} alt='' className='mr-2' />
-                <span>Continue with Google</span>
-              </Link>
+          
               <Link
                 to='#'
                 className='social-login apple-login flex items-center'

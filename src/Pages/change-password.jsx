@@ -40,7 +40,7 @@ const ResetPassword = () => {
     } else {
       setPasswordMatchError(false);
       setPasswordMatch(true);
-      console.log('Passwords match, submitting form...');
+     
     }
   };
   

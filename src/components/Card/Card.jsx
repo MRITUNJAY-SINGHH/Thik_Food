@@ -178,12 +178,14 @@ const Card = ({ productData }) => {
               ₹{productData.oldPrice}
             </p>
           </div>
-          <div className='w-full flex justify-center items-center'>
-            <button className='text-white product-btn flex justify-center items-center w-full '>
-              Shop Now
-              <FaTruckArrowRight className='inline-block ml-2 icon animate-icon' />
-            </button>
-          </div>
+          <Link to={`/product/details/${productData.id}`} className='w-full'>
+            <div className='w-full flex justify-center items-center'>
+              <button className='text-white product-btn flex justify-center items-center w-full '>
+                Shop Now
+                <FaTruckArrowRight className='inline-block ml-2 icon animate-icon' />
+              </button>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

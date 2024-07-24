@@ -14,6 +14,7 @@ import { signOutUser } from '../store/authSlice';
 import toast from 'react-hot-toast';
 
 
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
@@ -23,32 +24,38 @@ export default function DropdownMenu() {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
     const navigate = useNavigate();
-    const isNewUser = useSelector((state) => state.auth.isNewUser);
-    const usernameShow = useSelector((state) => state.auth.username);
 
+const googleUser = useSelector((state) => state.auth.user);
+  const Authentication = useSelector((state) => state.auth.auth); 
 
-      let accountMenuItem;
-      if (user) {
-        if (isNewUser) {
-          accountMenuItem = {
-            text: `Hi, ${usernameShow}`,
-            icon: userIcon,
-            path: '/account',
-          };
-        } else {
-          accountMenuItem = {
-            text: `Welcome, ${usernameShow}`,
-            icon: userIcon,
-            path: '/account',
-          };
-        }
-      } else {
-        accountMenuItem = {
-          text: 'My Account',
-          icon: userIcon,
-          path: '/account',
-        };
-      }
+let accountMenuItem;
+if (googleUser) {
+ 
+  const displayName =
+    googleUser.providerData[0].providerId === 'google.com'
+      ? googleUser.displayName
+      : googleUser.username;
+
+  if (displayName) {
+    accountMenuItem = {
+      text: `Welcome ${displayName}`,
+      icon: userIcon,
+      path: '/account',
+    };
+  } else {
+    accountMenuItem = {
+      text: 'My Account',
+      icon: userIcon,
+      path: '/account',
+    };
+  }
+} else {
+  accountMenuItem = {
+    text: 'My Account',
+    icon: userIcon,
+    path: '/account',
+  };
+}
 
 
   const handleButtonClick = () => {
@@ -71,16 +78,25 @@ const handleLogout = async () => {
     toast.error('Logout failed. Please try again.');
   }
 };
-  const menuItems = [
-    accountMenuItem,
-    { text: 'Order Tracking', icon: voucherIcon, path: '/account' },
+
+
+  const menuItems = Authentication ?  [
+ accountMenuItem,
+    { text: 'Order Tracking', icon: voucherIcon, path: '/account', },
     { text: 'My Wishlist', icon: favoriteIcon, path: '/wishlist' },
     { text: 'Setting', icon: settingIcon, path: '/account' },
     user
       ? { text: 'Logout', icon: signInIcon, action: handleLogout }
       : { text: 'Login', icon: signInIcon, path: '/login' },
-    { text: 'Change Password', icon: passwordIcon, path: '/reset-password' },
+    { text: 'Reset Password', icon: passwordIcon, path: '/forget-password' },
+  ]:
+  [
+    { text: 'Login', icon: signInIcon, path: '/login' },
+    { text: 'Forget Password', icon: passwordIcon, path: '/forget-password' },
   ];
+
+
+
 
   return (
     <Menu as='div' className='relative inline-block text-left'>

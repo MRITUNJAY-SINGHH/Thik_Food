@@ -46,7 +46,7 @@ const ProductDetailsPage = () => {
     item.items.flatMap((items) => items.products)
   );
   const product = productData.find((product) => product.id === productIdInt);
-  console.log(product);
+
 
   const ExistProduct = useSelector((state) =>
     state.wishlist.items.find((item) => item.id === productData.id)
