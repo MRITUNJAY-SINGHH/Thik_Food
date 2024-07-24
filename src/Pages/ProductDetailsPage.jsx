@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fi';
 import Carousel from 'react-multi-carousel';
 import { Link, useParams } from 'react-router-dom';
-import { Rating } from '@mui/material';
+import {  Rating } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { FiChevronDown, FiChevronUp, FiShoppingCart } from 'react-icons/fi';
 import Zoom from 'react-medium-image-zoom';
@@ -208,6 +208,30 @@ const ProductDetailsPage = () => {
           <p className='text-md dark:text-white dark:opacity-100 max-w-[80%]'>
             {product.description}
           </p>
+          {product.weight.length > 1 && (
+            <div className='select-weight'>
+              <p className='font-semibold mb-1 dark:text-white'>
+                Size / Weight:
+              </p>
+              <div className='flex flex-wrap space-x-2'>
+                {product.weight.map((weightOption, index) => {
+                  return (
+                    <button
+                      key={index}
+                      className={`py-1 px-3 rounded border ${
+                        selectedWeight === weightOption
+                          ? 'text-white bg-[#3BB77E]'
+                          : 'bg-white dark:bg-gray-900'
+                      }`}
+                      onClick={() => handleWeightSelect(weightOption)}
+                    >
+                      {weightOption} g
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
           <div className='detail-extralink space-y-4'>
             <div className='detail-qty border radius flex space-x-2'>
               <button onClick={decreaseQuantity} className='qty-down'>
@@ -241,30 +265,6 @@ const ProductDetailsPage = () => {
               </Link>
             </div>
           </div>
-          {product.weight.length > 1 && (
-            <div className='select-weight'>
-              <p className='font-semibold mb-1 dark:text-white'>
-                Size / Weight:
-              </p>
-              <div className='flex flex-wrap space-x-2'>
-                {product.weight.map((weightOption, index) => {
-                  return (
-                    <button
-                      key={index}
-                      className={`py-1 px-3 rounded border ${
-                        selectedWeight === weightOption
-                          ? 'text-white bg-[#3BB77E]'
-                          : 'bg-white dark:bg-gray-900'
-                      }`}
-                      onClick={() => handleWeightSelect(weightOption)}
-                    >
-                      {weightOption} g
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
 
           <div className='flex justify-between items-start w-[70%] text-sm'>
             <ul className='space-y-3 mt-4'>
@@ -310,18 +310,18 @@ const ProductDetailsPage = () => {
         </div>
       </div>
       <TabDetails />
-      <div className='pt-10'>
+      {/* <div className='pt-10'>
         <div className='section-title'>
           <h5 className='dark:text-white text-2xl'>Related products</h5>
         </div>
-        {/* <div className='w-[20%] px-2 pb-12'>
+        <div className='w-[20%] px-2 pb-12'>
                <Card
                   productData={product}
                   currentImage={product.productImages[0]}
                   image2={product.productImages[1]}
                />
-            </div> */}
-      </div>
+            </div>
+      </div> */}
     </div>
   );
 };

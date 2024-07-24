@@ -6,6 +6,7 @@ import wishlistSlice from './wishlistSlice';
 import productSlice from './productSlice';
 import cartSlice from './cartSlice';
 import searchResultSlice from './searchResult';
+import authReducer from './authSlice';
 
 const rootReducer = combineReducers({
   data: dataReducer,
@@ -13,12 +14,13 @@ const rootReducer = combineReducers({
   product: productSlice,
   cart: cartSlice,
   setSearchResult: searchResultSlice,
+  auth: authReducer,
 });
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['wishlist', 'cart'],
+  whitelist: ['wishlist', 'cart', 'auth'],
   blacklist: ['product', 'data', 'setSearchResult'],
 };
 

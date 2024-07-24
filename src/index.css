@@ -996,7 +996,7 @@ p {
 .contact-from-button {
    font-size: 17px;
    font-weight: 500;
-   padding: 20px 40px;
+   padding: 15px 60px;
    color: #ffffff;
    border: none;
    background-color: #253d4e;
@@ -1084,6 +1084,16 @@ p {
    width: 100%;
 }
 .dark .dashboard-menu ul li a {
+   color: #fff;
+}
+.dashboard-menu ul li button{
+   font-size: 16px;
+   color: #7e7e7e;
+   padding: 15px 30px;
+   font-weight: 700;
+   width: 100%;
+}
+.dark .dashboard-menu ul li button{
    color: #fff;
 }
 

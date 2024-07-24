@@ -8,11 +8,15 @@ import {
   FiLogOut,
 } from 'react-icons/fi';
 import { LuSlidersHorizontal } from 'react-icons/lu';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PasswordInput } from '../Common/Password';
+import { useDispatch } from 'react-redux';
+import { signOutUser } from '../store/authSlice';
+import toast from 'react-hot-toast';
 
 const Account = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const navigate = useNavigate();
 
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
@@ -44,6 +48,23 @@ const Account = () => {
         total: '$190.00 for 1 item',
       },
     ];
+
+      const dispatch = useDispatch();
+
+
+
+      const handleLogout = async () => {
+        try {
+          await dispatch(signOutUser());
+          toast.success('Logged out successfully!');
+       
+          setTimeout(() => {
+            navigate('/');
+          }, 1000);
+        } catch (error) {
+          toast.error('Logout failed. Please try again.');
+        }
+      };
 
 const renderTabContent = () => {
   switch (activeTab) {
@@ -391,10 +412,16 @@ const renderTabContent = () => {
                 </Link>
               </li>
               <li className='nav-item'>
-                <Link className='nav-link flex items-center' to='/login'>
+                <button
+                  className='nav-link flex items-center'
+                  to='#'
+                  role='tab'
+                  aria-controls='logout'
+                  onClick={handleLogout}
+                >
                   <FiLogOut className='mr-2' />
                   Logout
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

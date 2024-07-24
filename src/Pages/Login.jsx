@@ -1,11 +1,52 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import { PasswordInput } from '../Common/Password';
 import googleImg from '../assets/google.svg';
 import facebookImg from '../assets/Facebook-f_Logo-Blue-Logo.wine.svg';
 import GithubImg from '../assets/GitHub-Logo.wine.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { signIn } from '../store/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {useState } from 'react';
+import toast from 'react-hot-toast';
+import { FaSpinner } from 'react-icons/fa';
+
+
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      toast.error('Please fill all fields');
+      return;
+    }
+
+    dispatch(signIn({ email, password }))
+      .unwrap()
+      .then(() => {
+        toast.success('Login successful!');
+        setEmail('');
+        setPassword('');
+        setTimeout(()=>{
+          navigate('/');
+
+        }, 1000);
+      })
+      .catch((error) => {
+        if (error.message === 'User not found') {
+          toast.error('No account found with this email. Please sign up.');
+        } else {
+          toast.error('No account found with this email. Please sign up.');
+        }
+      });
+  };
+
   return (
     <div>
       <div className='py-[120px]'>
@@ -16,17 +57,24 @@ const Login = () => {
               <p className='mb-[30px]'>
                 Don't have an account? <Link to='/sign-up'>Create account</Link>{' '}
               </p>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className='input-style mb-4'>
                   <input
                     name='text || email'
                     placeholder='Enter your username or email'
                     type='text'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className='w-full py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 dark:bg-gray-900 dark:text-white'
                   />
                 </div>
                 <div className='input-style mb-4'>
-                  <PasswordInput label='Password' id='password' />
+                  <PasswordInput
+                    passwordValue={password}
+                    label='Password'
+                    id='password'
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </div>
                 <div className='mb-6 flex justify-between items-center'>
                   <div className='forget-password'>
@@ -60,10 +108,11 @@ const Login = () => {
                 </div>
                 <div>
                   <button
-                    className='bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline contact-from-button hover-up mb-8 mt-2 custom-btn btn-md'
+                    className='bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline contact-from-button hover-up mb-8 mt-2 custom-btn'
                     type='submit'
+                    disabled={loading} 
                   >
-                    Login
+                    {loading ? <FaSpinner /> : 'Login'} 
                   </button>
                 </div>
               </form>
