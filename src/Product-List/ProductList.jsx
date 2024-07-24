@@ -54,6 +54,9 @@ const menuItems2 = [
   { text: 'Rating', filterKey: 'rating' },
 ];
 
+
+
+
 const ProductList = () => {
   // State variables
   const [isOpen1, setIsOpen1] = useState(false);
@@ -61,8 +64,23 @@ const ProductList = () => {
   const [selectedItem1, setSelectedItem1] = useState(12);
   const [selectedItem2, setSelectedItem2] = useState('A to Z');
   const [currentPage, setCurrentPage] = useState(1);
+  const [productData, setProductData] = useState([]);
   const [brand, setBrand] = useState('');
-  const [priceRange, setPriceRange] = useState([0, Infinity]);
+
+
+  const HighestPrice = Math.max(...productData.map((product) => product.price));
+
+
+  const [priceRange, setPriceRange] = useState([0, HighestPrice]);
+
+  useEffect(() => {
+    const newHighestPrice = Math.max(
+      ...productData.map((product) => product.price)
+    );
+    setPriceRange([0, newHighestPrice]);
+  }, [productData, HighestPrice]); 
+  
+
 
   // Data from Redux store
   const data = useSelector((state) => state.data.data);
@@ -73,9 +91,11 @@ const ProductList = () => {
   const { category, subcategory } = useParams();
 
   
-  const [productData, setProductData] = useState([]);
+  
 
-  console.log(productData,"productData")
+
+
+
 
   useEffect(() => {
     let productData = [];
@@ -219,6 +239,7 @@ const ProductList = () => {
             productData={productData}
             setPriceRange={setPriceRange}
             setBrand={setBrand}
+            HighestPrice={HighestPrice}
           />
         </div>
         <div className='w-3/4'>
