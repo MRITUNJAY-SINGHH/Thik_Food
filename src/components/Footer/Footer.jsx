@@ -8,7 +8,7 @@ import icon4 from '../../assets/icon-4.svg';
 import icon5 from '../../assets/icon-5.svg';
 import './Footer.css';
 import { FaEnvelope, FaLinkedin, FaPhone } from 'react-icons/fa6';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/think logo.png';
 import payment from '../../assets/payment-method.png';
 import apple from '../../assets/app-store.jpg';
 import playstore from '../../assets/google-play.jpg';
@@ -161,9 +161,8 @@ const Footer = () => {
            <div className='col-span-2'>
              <div className='mb-30'>
                <Link to='/' className='mb-15'>
-                 <img src={logo} alt='logo' />
+                 <img src={logo} alt='logo' className='h-16 w-full' />
                </Link>
-             
              </div>
              <ul>
                <li className='flex items-start my-4 space-x-1'>
@@ -264,21 +263,21 @@ const Footer = () => {
            <div>
              <div className='hotline inline-flex mr-8 min-w-[200px]'>
                <img src={phoneCall} alt='hotline' />
-               <Link to ='tel:+14049478771' className='hover-up'>
-               <p>
-                 (404) 947-8771
-                 <span className='dark:text-white'>Working Mon - Fri</span>
-               </p>
-                </Link>
+               <Link to='tel:+14049478771' className='hover-up'>
+                 <p>
+                   (404) 947-8771
+                   <span className='dark:text-white'>Working Mon - Fri</span>
+                 </p>
+               </Link>
              </div>
              <div className='hotline inline-flex mr-8 min-w-[200px]'>
                <img src={phoneCall} alt='hotline' />
-                <Link to ='tel:+14049478771' className='hover-up'>
-               <p>
-                 (404) 947-8771
-                 <span className='dark:text-white'>24/7 Support Center</span>
-               </p>
-                </Link>
+               <Link to='tel:+14049478771' className='hover-up'>
+                 <p>
+                   (404) 947-8771
+                   <span className='dark:text-white'>24/7 Support Center</span>
+                 </p>
+               </Link>
              </div>
            </div>
            <div className='flex gap-3 items-center justify-center social-icon'>

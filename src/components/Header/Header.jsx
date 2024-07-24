@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FaAngleRight, FaSearch } from 'react-icons/fa';
-import Logo from '../../assets/logo.svg';
+import Logo from '../../assets/think logo.png';
 import { IoGitCompareOutline } from 'react-icons/io5';
 import { MdFavoriteBorder } from 'react-icons/md';
 import './Header.css';
@@ -87,7 +87,7 @@ const Header = () => {
       <div className='header flex justify-between items-center mx-2 my-4 pt-[20px] pb-[30px]'>
         <div className='logo flex justify-center items-center w-[9%]'>
           <Link to='/'>
-            <img src={Logo} alt='logo' className='h-11' />
+            <img src={Logo} alt='logo' className='h-12 w-full' />
           </Link>
         </div>
         <div className='Search  h-11 flex items-center w-[45%] mx-5 my-autocomplete'>
