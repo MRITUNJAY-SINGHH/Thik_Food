@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FaAngleRight, FaSearch } from 'react-icons/fa';
-import Logo from '../../assets/think logo.png';
+import Logo from '../../assets/logo.svg';
 import { IoGitCompareOutline } from 'react-icons/io5';
 import { MdFavoriteBorder } from 'react-icons/md';
 import './Header.css';

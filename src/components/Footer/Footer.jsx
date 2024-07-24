@@ -8,7 +8,7 @@ import icon4 from '../../assets/icon-4.svg';
 import icon5 from '../../assets/icon-5.svg';
 import './Footer.css';
 import { FaEnvelope, FaLinkedin, FaPhone } from 'react-icons/fa6';
-import logo from '../../assets/think logo.png';
+import logo from '../../assets/logo.svg';
 import payment from '../../assets/payment-method.png';
 import apple from '../../assets/app-store.jpg';
 import playstore from '../../assets/google-play.jpg';
