@@ -3,14 +3,15 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBmEwivhYD9SKxSiO43JhihBfTkQzeVZpE",
-  authDomain: "thiktivefood-app.firebaseapp.com",
-  projectId: "thiktivefood-app",
-  storageBucket: "thiktivefood-app.appspot.com",
-  messagingSenderId: "142073592177",
-  appId: "1:142073592177:web:b838134c2d2f95ff9c5ed0",
-  measurementId: "G-TYCT6411SY"
+  apiKey: import.meta.env.VITE_APP_API_KEY,
+  authDomain: import.meta.env.VITE_APP_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_APP_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_APP_ID,
+  measurementId: import.meta.env.VITE_APP_MEASUREMENT_ID,
 };
+
 
 
 initializeApp(firebaseConfig);

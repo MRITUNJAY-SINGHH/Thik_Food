@@ -20,7 +20,10 @@ const handleSubmit = async (event) => {
   }
   try {
     await sendPasswordResetEmail(auth, email);
-    toast.success('Password reset email sent! Check your inbox.');
+  toast.success(
+    'Password reset email successfully sent! Please check your inbox.'
+  );
+
     setEmail('');
   } catch (error) {
     if (error.code === 'auth/user-not-found') {
@@ -30,7 +33,7 @@ const handleSubmit = async (event) => {
       );
     } else {
       
-      toast.error(error.message);
+      toast.error(error.message || 'Something went wrong. Please try again.');
     }
   }
 };
