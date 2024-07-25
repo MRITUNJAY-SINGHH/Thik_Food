@@ -99,7 +99,7 @@ const Header = () => {
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             onClick={handleSearch}
-            disabled='true'
+            disabled={true}
           />
 
           <div
