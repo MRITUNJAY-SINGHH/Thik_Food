@@ -1,3 +1,7 @@
+.header {
+   height: 40px;
+}
+
 .my-autocomplete .MuiOutlinedInput-notchedOutline {
    border: none;
 }
@@ -71,7 +75,6 @@
 .NavbarBorder {
    border-top: 1px solid #ececec;
    border-bottom: 1px solid #ececec;
-  
 }
 
 .dark .NavbarBorder {
