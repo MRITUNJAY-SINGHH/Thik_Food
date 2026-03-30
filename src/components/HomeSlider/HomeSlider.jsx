@@ -43,26 +43,28 @@ export default function HomeSlider() {
                customRightArrow={<CustomRightArrow />}
                dotListClass='custom-dot-list'
             >
-               <div>
+               <div className='relative'>
                   <img src={sliderImage1} alt='slider' className='w-full' />
+                  <div className='absolute inset-0 bg-black/40 z-[1]' />
                   <div className='absolute top-1/2 left-[-80px] transform -translate-x-72 -translate-y-1/2 text-center w-full z-10'>
                      <h2 className='text-7xl text-white font-bold mb-5'>
-                        Don’t miss amazing
+                        Don't miss amazing
                         <br />
-                        grocery deals
+                        electronics deals
                      </h2>
                      <p className='text-3xl text-white font-medium mb-12'>
                         Save up to 50% off on your first order
                      </p>
                   </div>
                </div>
-               <div>
+               <div className='relative'>
                   <img src={sliderImage2} alt='slider' className='w-full' />
+                  <div className='absolute inset-0 bg-black/40 z-[1]' />
                   <div className='absolute top-1/2 left-[-80px] transform -translate-x-72 -translate-y-1/2 text-center w-full z-10'>
                      <h2 className='text-7xl text-white font-bold mb-5'>
-                        Fresh Vegetables
+                        Latest Gadgets
                         <br />
-                        Big discount
+                        Big discounts
                      </h2>
                      <p className='text-3xl text-white font-medium mb-12'>
                         Save up to 50% off on your first order

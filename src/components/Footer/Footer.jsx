@@ -7,7 +7,7 @@ import icon3 from '../../assets/icon-3.svg';
 import icon4 from '../../assets/icon-4.svg';
 import icon5 from '../../assets/icon-5.svg';
 import './Footer.css';
-import { FaEnvelope, FaLinkedin, FaPhone } from 'react-icons/fa6';
+import { FaEnvelope, FaLinkedin, FaPhone, FaWhatsapp } from 'react-icons/fa6';
 import logo from '../../assets/logo.svg';
 import payment from '../../assets/payment-method.png';
 import apple from '../../assets/app-store.jpg';
@@ -102,7 +102,9 @@ const Footer = () => {
                <div className='col-span-2'>
                   <div className='mb-30'>
                      <Link to='/'>
-                        <h2 className='text-black font-bold text-2xl'>TIB</h2>
+                        <h2 className='text-black font-bold text-2xl dark:text-white'>
+                           TIB
+                        </h2>
                      </Link>
                   </div>
                   <ul>
@@ -204,9 +206,9 @@ const Footer = () => {
                <div>
                   <div className='hotline inline-flex mr-8 min-w-[200px]'>
                      <img src={phoneCall} alt='hotline' />
-                     <Link to='tel:+14049478771' className='hover-up'>
+                     <Link to='tel:+918076942700' className='hover-up'>
                         <p>
-                           (404) 947-8771
+                           8076942700
                            <span className='dark:text-white'>
                               Working Mon - Fri
                            </span>
@@ -215,9 +217,9 @@ const Footer = () => {
                   </div>
                   <div className='hotline inline-flex mr-8 min-w-[200px]'>
                      <img src={phoneCall} alt='hotline' />
-                     <Link to='tel:+14049478771' className='hover-up'>
+                     <Link to='tel:+919911266744' className='hover-up'>
                         <p>
-                           (404) 947-8771
+                           9911266744
                            <span className='dark:text-white'>
                               24/7 Support Center
                            </span>
@@ -230,7 +232,7 @@ const Footer = () => {
                      Follow Us
                   </h6>
                   <Link
-                     to='https://www.facebook.com/people/Thinktiveit/61559515927626/'
+                     to='https://m.me/yourpagename'
                      target='_blank'
                      rel='noreferrer'
                      className='hover-up'
@@ -238,7 +240,7 @@ const Footer = () => {
                      <FaFacebook className='icon' size={16} color='white' />
                   </Link>
                   <Link
-                     to='https://www.linkedin.com/company/thinktiveit/'
+                     to='#'
                      className='hover-up'
                      target='_blank'
                      rel='noreferrer'
@@ -246,18 +248,23 @@ const Footer = () => {
                      <FaLinkedin className='icon' size={16} color='white' />
                   </Link>
                   <Link
-                     to='https://www.instagram.com/thinktiveit'
+                     to='https://www.instagram.com/titaniumbitss/'
                      target='_blank'
                      rel='noreferrer'
                      className='hover-up'
                   >
                      <FaInstagram className='icon' size={16} color='white' />
                   </Link>
-                  <Link to='mailto:sales@thinktiveit.com' className='hover-up'>
+                  <Link to='#' className='hover-up'>
                      <FaEnvelope className='icon' size={16} color='white' />
                   </Link>
-                  <Link to='tel:+14049478771' className='hover-up'>
-                     <FaPhone className='icon' size={16} color='white' />
+                  <Link
+                     to='https://wa.me/9069591325'
+                     target='_blank'
+                     rel='noreferrer'
+                     className='hover-up'
+                  >
+                     <FaWhatsapp className='icon' size={16} color='white' />
                   </Link>
                </div>
             </div>

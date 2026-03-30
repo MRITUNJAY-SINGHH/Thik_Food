@@ -82,7 +82,9 @@ const Header = () => {
          <div className='header flex justify-between items-center mx-2 my-4 pt-[20px] height-[30px]'>
             <div className='logo flex justify-center items-center w-[9%]'>
                <Link to='/'>
-                  <h2 className='text-black font-bold text-2xl'>TIB</h2>
+                  <h2 className='text-black font-bold text-2xl dark:text-white'>
+                     TIB
+                  </h2>
                </Link>
             </div>
             {/* <div className='Search  h-11 flex items-center w-[45%] mx-5 my-autocomplete'>
@@ -111,22 +113,22 @@ const Header = () => {
                      <Link to='/'>Home</Link>
                   </li>
                   <li>
-                     <Link to='/shop'>Shop</Link>
+                     <Link to='#'>Shop</Link>
                   </li>
                   <li>
-                     <Link to='/about'>Collection</Link>
+                     <Link to='#'>Collection</Link>
                   </li>
                   <li>
-                     <Link to='/contact'>New Arrivals</Link>
+                     <Link to='#'>New Arrivals</Link>
                   </li>
                   <li>
-                     <Link to='/blog'>Best Sellers</Link>
+                     <Link to='#'>Best Sellers</Link>
                   </li>
                   <li>
-                     <Link to='/blog'>Our Story</Link>
+                     <Link to='#'>Our Story</Link>
                   </li>
                   <li>
-                     <Link to='/blog'>Business Order</Link>
+                     <Link to='/contact-us'>Business Order</Link>
                   </li>
                </ul>
             </nav>
